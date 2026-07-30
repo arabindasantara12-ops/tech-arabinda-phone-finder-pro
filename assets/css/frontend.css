@@ -1,0 +1,155 @@
+/* ==========================================
+   Tech Arabinda Phone Finder Pro
+   Frontend Styles v1.0
+========================================== */
+
+:root{
+    --primary:#2563eb;
+    --primary-dark:#1d4ed8;
+    --secondary:#06b6d4;
+    --success:#16a34a;
+    --warning:#f59e0b;
+    --danger:#dc2626;
+    --dark:#111827;
+    --gray:#6b7280;
+    --light:#f8fafc;
+    --white:#ffffff;
+    --radius:18px;
+    --shadow:0 12px 30px rgba(0,0,0,.08);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+.tapf-container{
+    max-width:1200px;
+    margin:40px auto;
+    padding:20px;
+    font-family:Inter,Arial,sans-serif;
+}
+
+/* Hero */
+
+.tapf-hero{
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+    color:#fff;
+    padding:50px;
+    border-radius:25px;
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.tapf-hero h1{
+    font-size:42px;
+    font-weight:700;
+}
+
+.tapf-hero p{
+    margin-top:15px;
+    font-size:18px;
+    opacity:.95;
+}
+
+/* Search */
+
+.tapf-search-box{
+    margin:30px auto;
+    max-width:700px;
+}
+
+#tapf-search{
+    width:100%;
+    padding:18px 20px;
+    border:2px solid #e5e7eb;
+    border-radius:50px;
+    font-size:17px;
+    outline:none;
+    transition:.3s;
+}
+
+#tapf-search:focus{
+    border-color:var(--primary);
+    box-shadow:0 0 15px rgba(37,99,235,.25);
+}
+
+/* Results */
+
+#tapf-result{
+    margin-top:25px;
+    display:grid;
+    gap:20px;
+}
+
+.tapf-card{
+    background:#fff;
+    border-radius:20px;
+    box-shadow:var(--shadow);
+    padding:25px;
+    transition:.3s;
+    border:1px solid #eef2f7;
+}
+
+.tapf-card:hover{
+    transform:translateY(-6px);
+}
+
+.tapf-card h3{
+    color:var(--primary);
+    margin-bottom:10px;
+    font-size:22px;
+}
+
+.tapf-card p{
+    color:var(--gray);
+    margin:8px 0;
+}
+
+/* Button */
+
+.tapf-btn{
+    display:inline-block;
+    margin-top:15px;
+    background:var(--primary);
+    color:#fff;
+    text-decoration:none;
+    padding:12px 22px;
+    border-radius:50px;
+    transition:.3s;
+}
+
+.tapf-btn:hover{
+    background:var(--primary-dark);
+}
+
+/* Loading */
+
+.tapf-loading{
+    text-align:center;
+    padding:30px;
+    color:var(--gray);
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.tapf-hero{
+    padding:30px 20px;
+}
+
+.tapf-hero h1{
+    font-size:30px;
+}
+
+#tapf-search{
+    font-size:16px;
+}
+
+.tapf-card{
+    padding:18px;
+}
+
+}
