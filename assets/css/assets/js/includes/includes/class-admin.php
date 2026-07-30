@@ -39,6 +39,16 @@ class TAPF_Admin {
             'tapf-add-phone',
             array($this, 'add_phone_page')
         );
+
+        add_submenu_page(
+            'tapf-dashboard',
+            'All Phones',
+            'All Phones',
+            'manage_options',
+            'tapf-all-phones',
+            array($this, 'phones_page')
+        );
+        
     }
 
     public function dashboard_page() {
@@ -148,7 +158,7 @@ class TAPF_Admin {
 
     }
 
-    public function save_phone() {
+        public function save_phone() {
 
         if (!current_user_can('manage_options')) {
             wp_die('Permission denied');
@@ -161,6 +171,53 @@ class TAPF_Admin {
         wp_redirect(admin_url('admin.php?page=tapf-dashboard&saved=1'));
 
         exit;
+
+    }
+
+    public function phones_page() {
+
+        $phones = TAPF_Phone::get_all();
+
+        echo '<div class="wrap">';
+        echo '<h1>All Smartphones</h1>';
+
+        if (empty($phones)) {
+
+            echo '<p>No smartphones found.</p>';
+
+        } else {
+
+            echo '<table class="widefat striped">';
+            echo '<thead>
+            <tr>
+                <th>ID</th>
+                <th>Brand</th>
+                <th>Model</th>
+                <th>Price</th>
+            </tr>
+            </thead>';
+
+            echo '<tbody>';
+
+            foreach ($phones as $phone){
+
+                echo '<tr>';
+
+                echo '<td>'.$phone->id.'</td>';
+                echo '<td>'.$phone->brand.'</td>';
+                echo '<td>'.$phone->model.'</td>';
+                echo '<td>₹'.$phone->price.'</td>';
+
+                echo '</tr>';
+
+            }
+
+            echo '</tbody>';
+            echo '</table>';
+
+        }
+
+        echo '</div>';
 
     }
 
