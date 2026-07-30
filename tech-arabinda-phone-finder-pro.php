@@ -17,49 +17,14 @@ define('TAPF_VERSION', '1.0.0');
 define('TAPF_PATH', plugin_dir_path(__FILE__));
 define('TAPF_URL', plugin_dir_url(__FILE__));
 
+require_once TAPF_PATH . 'includes/class-database.php';
+require_once TAPF_PATH . 'includes/class-admin.php';
+
 register_activation_hook(__FILE__, 'tapf_activate');
 register_deactivation_hook(__FILE__, 'tapf_deactivate');
 
 function tapf_activate() {
-    global $wpdb;
-
-    $table = $wpdb->prefix . "tapf_phones";
-
-    $charset = $wpdb->get_charset_collate();
-
-    $sql = "CREATE TABLE $table (
-
-    id BIGINT NOT NULL AUTO_INCREMENT,
-
-    brand VARCHAR(100),
-
-    model VARCHAR(150),
-
-    display VARCHAR(100),
-
-    processor VARCHAR(150),
-
-    ram VARCHAR(50),
-
-    storage VARCHAR(50),
-
-    camera TEXT,
-
-    battery VARCHAR(100),
-
-    os VARCHAR(100),
-
-    price VARCHAR(100),
-
-    image TEXT,
-
-    PRIMARY KEY(id)
-
-    ) $charset;";
-
-    require_once ABSPATH . 'wp-admin/includes/upgrade.php';
-
-    dbDelta($sql);
+    TAPF_Database::install();
 }
 
 function tapf_deactivate() {
