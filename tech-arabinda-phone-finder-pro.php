@@ -17,9 +17,10 @@ define('TAPF_VERSION', '1.0.0');
 define('TAPF_PATH', plugin_dir_path(__FILE__));
 define('TAPF_URL', plugin_dir_url(__FILE__));
 
-require_once TAPF_PATH . 'includes/class-loader.php';
 require_once TAPF_PATH . 'includes/class-database.php';
 require_once TAPF_PATH . 'includes/class-admin.php';
+require_once TAPF_PATH . 'includes/class-loader.php';
+require_once TAPF_PATH . 'includes/class-phone.php';
 
 register_activation_hook(__FILE__, 'tapf_activate');
 register_deactivation_hook(__FILE__, 'tapf_deactivate');
