@@ -121,3 +121,4 @@ wp_send_json($data);
 add_action('wp_ajax_tapf_search','tapf_search_ajax');
 add_action('wp_ajax_nopriv_tapf_search','tapf_search_ajax');
 TAPF_Loader::init();
+TAPF_Admin::init();
